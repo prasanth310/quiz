@@ -1,0 +1,51 @@
+easy=[
+    "ADD 2+4?\n(a) 6\n(b)7\n",
+     "sub 2-4?\n(a) 6\n(b)2\n",
+     "add 4+4?\n(a) 6\n(b)8\n",
+     "sub  4-2?\n(a) 16\n(b)2\n",
+    "add 100+12?\n(a) 123\n(b)112\n"
+]
+easy_ans=[
+    "a",
+    "b",
+    "b",
+    "b",
+    "b"
+]
+hard=[
+    "what is 4*4?\n(a) 16\n(b)7\n",
+     "what is 2**4?\n(a) 16\n(b)2\n",
+     "what is 2*4?\n(a) 6\n(b)8\n",
+     "what is 4**2?\n(a) 16\n(b)2\n",
+    "what is 3*4?\n(a) 12\n(b)8\n"
+]
+hard_ans=[
+    "a",
+    "a",
+    "b",
+    "a",
+    "a"
+]
+z=0
+i=0
+sc=0
+while z in range(len(easy)):
+    if(z<len(easy)):
+        print(easy[z])
+        ans=input()
+        if(ans==easy_ans[z]):
+            sc+=1
+            for i in range(len(easy)-1):
+                if((z+i)<len(easy)-2):
+                    print(hard[i])
+                    ans=input()
+                    if(ans==hard_ans[i]):
+                        sc+=2
+                        i+=1
+                    else:
+                        i+=1
+                        break
+        
+        z=z+i+1
+        
+print("your score is %d" %(sc))
